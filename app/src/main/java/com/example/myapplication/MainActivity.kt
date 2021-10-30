@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).add(LocalDateTimeAdapter()).build()
 
+        // コマンドラインでビルドした時にだけクラッシュする
         button.setOnClickListener {
             val sample = Sample(LocalDateTime.now())
             val hoge = moshi.adapter(Sample::class.java).toJson(sample)
